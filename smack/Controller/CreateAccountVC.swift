@@ -1,5 +1,5 @@
 //
-//  LoginVC.swift
+//  CreateAccountVC.swift
 //  smack
 //
 //  Created by Graphene on 26/1/19.
@@ -8,24 +8,18 @@
 
 import UIKit
 
-class LoginVC: UIViewController {
+class CreateAccountVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
+    }
+    @IBAction func closePressed(_ sender: Any) {
+        performSegue(withIdentifier: UNWIND_TO_CHANNEL, sender: nil)
     }
     
 
-    @IBAction func loginBtnPressed(_ sender: Any) {
-        
-    }
-    @IBAction func closeBtnPressed(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
-    }
-    @IBAction func createAccountPressed(_ sender: Any) {
-        performSegue(withIdentifier: TO_CREATE_ACCOUNT, sender: nil)
-    }
     /*
     // MARK: - Navigation
 
