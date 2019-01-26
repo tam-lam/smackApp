@@ -9,18 +9,18 @@
 /* Begin PBXBuildFile section */
 		B116E3AFDA0CDAD9C26DA20C /* Pods_smack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DEAB42E301729BF33A8ECD6 /* Pods_smack.framework */; };
 		B84B578721FBF92D00DE36B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84B578621FBF92D00DE36B2 /* AppDelegate.swift */; };
-		B84B578921FBF92D00DE36B2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84B578821FBF92D00DE36B2 /* ViewController.swift */; };
 		B84B578C21FBF92D00DE36B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B84B578A21FBF92D00DE36B2 /* Main.storyboard */; };
 		B84B578E21FBF92F00DE36B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B84B578D21FBF92F00DE36B2 /* Assets.xcassets */; };
 		B84B579121FBF92F00DE36B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B84B578F21FBF92F00DE36B2 /* LaunchScreen.storyboard */; };
 		B84B579C21FBFD6B00DE36B2 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B84B579B21FBFD6B00DE36B2 /* SWRevealViewController.m */; };
+		B84B57A121FC00AC00DE36B2 /* ChannelVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84B57A021FC00AC00DE36B2 /* ChannelVC.swift */; };
+		B84B57A321FC00B700DE36B2 /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84B57A221FC00B700DE36B2 /* ChatVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5DEAB42E301729BF33A8ECD6 /* Pods_smack.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_smack.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B84B578321FBF92D00DE36B2 /* smack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = smack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B84B578621FBF92D00DE36B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B84B578821FBF92D00DE36B2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B84B578B21FBF92D00DE36B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B84B578D21FBF92F00DE36B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B84B579021FBF92F00DE36B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -28,6 +28,8 @@
 		B84B579921FBFD6A00DE36B2 /* smack-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "smack-Bridging-Header.h"; sourceTree = "<group>"; };
 		B84B579A21FBFD6A00DE36B2 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWRevealViewController.h; path = "../../../../Downloads/Smack Assets/SWReveal/SWRevealViewController.h"; sourceTree = "<group>"; };
 		B84B579B21FBFD6B00DE36B2 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWRevealViewController.m; path = "../../../../Downloads/Smack Assets/SWReveal/SWRevealViewController.m"; sourceTree = "<group>"; };
+		B84B57A021FC00AC00DE36B2 /* ChannelVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelVC.swift; sourceTree = "<group>"; };
+		B84B57A221FC00B700DE36B2 /* ChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
 		BA6E1E2B9F269DAD357ACAC1 /* Pods-smack.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-smack.release.xcconfig"; path = "Pods/Target Support Files/Pods-smack/Pods-smack.release.xcconfig"; sourceTree = "<group>"; };
 		DFAD50AE9D06256F4F8092FB /* Pods-smack.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-smack.debug.xcconfig"; path = "Pods/Target Support Files/Pods-smack/Pods-smack.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -83,8 +85,10 @@
 		B84B578521FBF92D00DE36B2 /* smack */ = {
 			isa = PBXGroup;
 			children = (
+				B84B579F21FC009900DE36B2 /* Model */,
+				B84B579E21FC009500DE36B2 /* View */,
+				B84B579D21FC009000DE36B2 /* Controller */,
 				B84B578621FBF92D00DE36B2 /* AppDelegate.swift */,
-				B84B578821FBF92D00DE36B2 /* ViewController.swift */,
 				B84B578A21FBF92D00DE36B2 /* Main.storyboard */,
 				B84B578D21FBF92F00DE36B2 /* Assets.xcassets */,
 				B84B578F21FBF92F00DE36B2 /* LaunchScreen.storyboard */,
@@ -101,6 +105,29 @@
 				B84B579921FBFD6A00DE36B2 /* smack-Bridging-Header.h */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B84B579D21FC009000DE36B2 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B84B57A021FC00AC00DE36B2 /* ChannelVC.swift */,
+				B84B57A221FC00B700DE36B2 /* ChatVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B84B579E21FC009500DE36B2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B84B579F21FC009900DE36B2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,8 +249,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B84B578921FBF92D00DE36B2 /* ViewController.swift in Sources */,
+				B84B57A321FC00B700DE36B2 /* ChatVC.swift in Sources */,
 				B84B578721FBF92D00DE36B2 /* AppDelegate.swift in Sources */,
+				B84B57A121FC00AC00DE36B2 /* ChannelVC.swift in Sources */,
 				B84B579C21FBFD6B00DE36B2 /* SWRevealViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
