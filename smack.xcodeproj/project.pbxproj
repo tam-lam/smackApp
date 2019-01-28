@@ -19,6 +19,7 @@
 		B84B57A821FC133E00DE36B2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84B57A721FC133E00DE36B2 /* Constants.swift */; };
 		B84B57AA21FC17AB00DE36B2 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84B57A921FC17AB00DE36B2 /* LoginVC.swift */; };
 		B84B57AC21FC184D00DE36B2 /* CreateAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84B57AB21FC184D00DE36B2 /* CreateAccountVC.swift */; };
+		B88BAF5921FF2F8E00F230E3 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88BAF5821FF2F8E00F230E3 /* AuthService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		B84B57A721FC133E00DE36B2 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B84B57A921FC17AB00DE36B2 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		B84B57AB21FC184D00DE36B2 /* CreateAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountVC.swift; sourceTree = "<group>"; };
+		B88BAF5821FF2F8E00F230E3 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		BA6E1E2B9F269DAD357ACAC1 /* Pods-smack.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-smack.release.xcconfig"; path = "Pods/Target Support Files/Pods-smack/Pods-smack.release.xcconfig"; sourceTree = "<group>"; };
 		DFAD50AE9D06256F4F8092FB /* Pods-smack.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-smack.debug.xcconfig"; path = "Pods/Target Support Files/Pods-smack/Pods-smack.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -94,6 +96,7 @@
 		B84B578521FBF92D00DE36B2 /* smack */ = {
 			isa = PBXGroup;
 			children = (
+				B88BAF5721FF2F6F00F230E3 /* Services */,
 				B84B579F21FC009900DE36B2 /* Model */,
 				B84B579E21FC009500DE36B2 /* View */,
 				B84B579D21FC009000DE36B2 /* Controller */,
@@ -148,6 +151,14 @@
 				B84B57A721FC133E00DE36B2 /* Constants.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		B88BAF5721FF2F6F00F230E3 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				B88BAF5821FF2F8E00F230E3 /* AuthService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,6 +283,7 @@
 				B84B57A321FC00B700DE36B2 /* ChatVC.swift in Sources */,
 				B84B578721FBF92D00DE36B2 /* AppDelegate.swift in Sources */,
 				B84B57AC21FC184D00DE36B2 /* CreateAccountVC.swift in Sources */,
+				B88BAF5921FF2F8E00F230E3 /* AuthService.swift in Sources */,
 				B84B57AA21FC17AB00DE36B2 /* LoginVC.swift in Sources */,
 				B84B57A521FC0B1F00DE36B2 /* GradientView.swift in Sources */,
 				B84B57A121FC00AC00DE36B2 /* ChannelVC.swift in Sources */,
