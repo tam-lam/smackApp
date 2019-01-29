@@ -82,8 +82,45 @@ class AuthService {
                     debugPrint("Failed to get JSON response ")
                 }
                 
-                
             }else{
+                completion(false)
+                debugPrint(response.result.error as Any)
+            }
+        }
+    }
+    
+    func createUser(name: String, email: String, avatarName: String, avatarColor: String, completion: @escaping CompletionHandle){
+        let lowerCaseEmail = email.lowercased()
+        let body :[String: Any] = [
+            "name": name,
+            "email": lowerCaseEmail,
+            "avatarName": avatarName,
+            "avatarColor": avatarColor
+        ]
+        
+        let header = [
+            "Authorization": "Bearer \(AuthService.instance.authToken)",
+            "Content-Type" : "application/json; charset=utf-8"
+        ]
+        Alamofire.request(URL_USER_ADD, method: .post, parameters: body, encoding: JSONEncoding.default, headers: header).responseJSON { (response) in
+            if response.result.error == nil{
+                guard let data = response.data else {return}
+                do {
+                    let json =  try JSON(data: data)
+                    let id = json["_id"].stringValue
+                    let name = json["name"].stringValue
+                    let email = json["email"].stringValue
+                    let avatarName = json["avatarName"].stringValue
+                    let avatarColor = json["avatarColor"].stringValue
+                    UserDataService.instance.setUserData(id: id, avatarColor: avatarColor, avatarName: avatarName, email: email, name: name)
+                    completion(true)
+                }catch{
+                    completion(false)
+                    debugPrint("Cannot convert response to SwiftyJSON")
+                    
+                }
+                
+            } else{
                 completion(false)
                 debugPrint(response.result.error as Any)
             }
