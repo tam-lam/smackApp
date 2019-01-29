@@ -20,6 +20,7 @@
 		B84B57AA21FC17AB00DE36B2 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84B57A921FC17AB00DE36B2 /* LoginVC.swift */; };
 		B84B57AC21FC184D00DE36B2 /* CreateAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84B57AB21FC184D00DE36B2 /* CreateAccountVC.swift */; };
 		B88BAF5921FF2F8E00F230E3 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88BAF5821FF2F8E00F230E3 /* AuthService.swift */; };
+		B8ACD2CF22007B930045BDF0 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8ACD2CE22007B930045BDF0 /* RoundedButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		B84B57A921FC17AB00DE36B2 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		B84B57AB21FC184D00DE36B2 /* CreateAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountVC.swift; sourceTree = "<group>"; };
 		B88BAF5821FF2F8E00F230E3 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		B8ACD2CE22007B930045BDF0 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		BA6E1E2B9F269DAD357ACAC1 /* Pods-smack.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-smack.release.xcconfig"; path = "Pods/Target Support Files/Pods-smack/Pods-smack.release.xcconfig"; sourceTree = "<group>"; };
 		DFAD50AE9D06256F4F8092FB /* Pods-smack.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-smack.debug.xcconfig"; path = "Pods/Target Support Files/Pods-smack/Pods-smack.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -134,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				B84B57A421FC0B1F00DE36B2 /* GradientView.swift */,
+				B8ACD2CE22007B930045BDF0 /* RoundedButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -281,6 +284,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B84B57A321FC00B700DE36B2 /* ChatVC.swift in Sources */,
+				B8ACD2CF22007B930045BDF0 /* RoundedButton.swift in Sources */,
 				B84B578721FBF92D00DE36B2 /* AppDelegate.swift in Sources */,
 				B84B57AC21FC184D00DE36B2 /* CreateAccountVC.swift in Sources */,
 				B88BAF5921FF2F8E00F230E3 /* AuthService.swift in Sources */,

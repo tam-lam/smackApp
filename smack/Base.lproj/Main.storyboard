@@ -201,7 +201,7 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xwD-79-qr8">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xwD-79-qr8" customClass="RoundedButton" customModule="smack" customModuleProvider="target">
                                 <rect key="frame" x="62.5" y="319" width="250" height="50"/>
                                 <color key="backgroundColor" name="dividerColor"/>
                                 <constraints>
@@ -385,7 +385,7 @@
                                     <constraint firstAttribute="width" constant="250" id="0Yz-G0-Fs6"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Um3-FY-oi4">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Um3-FY-oi4" customClass="RoundedButton" customModule="smack" customModuleProvider="target">
                                 <rect key="frame" x="62.5" y="587" width="250" height="50"/>
                                 <color key="backgroundColor" name="dividerColor"/>
                                 <constraints>
@@ -396,6 +396,9 @@
                                 <state key="normal" title="Create an account">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="createAccountPressed:" destination="OoJ-Gd-ePZ" eventType="touchUpInside" id="BAf-HI-CY5"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create your account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L1X-t6-D2a">
                                 <rect key="frame" x="95" y="70" width="185" height="23"/>
@@ -416,6 +419,9 @@
                                 <state key="normal" title="Generate background color">
                                     <color key="titleColor" name="dividerColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="pickBgColorPressed:" destination="OoJ-Gd-ePZ" eventType="touchUpInside" id="wn9-Rq-q3Z"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zbs-U3-Jjx">
                                 <rect key="frame" x="137.5" y="324" width="100" height="130"/>
@@ -426,6 +432,9 @@
                                 <state key="normal" title="Choose avatar">
                                     <color key="titleColor" name="dividerColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="pickAvatarPressed:" destination="OoJ-Gd-ePZ" eventType="touchUpInside" id="BpU-P0-uIT"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -449,6 +458,10 @@
                         <viewLayoutGuide key="safeArea" id="ngc-p4-NT1"/>
                     </view>
                     <connections>
+                        <outlet property="emailTxt" destination="11t-kY-JaA" id="Ysn-IH-rRQ"/>
+                        <outlet property="passwordTxt" destination="EUA-J1-TE0" id="vG1-KK-jyQ"/>
+                        <outlet property="userImg" destination="7yj-Ka-my9" id="OBs-bm-ZMw"/>
+                        <outlet property="userNameTxt" destination="Wns-EL-zwP" id="tkK-lN-Hgd"/>
                         <segue destination="U2v-Nh-6b3" kind="unwind" identifier="unwindToChannel" unwindAction="prepareForUnwindWithSegue:" id="du1-af-cC4"/>
                     </connections>
                 </viewController>
