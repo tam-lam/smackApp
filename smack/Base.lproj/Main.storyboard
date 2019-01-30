@@ -172,6 +172,7 @@
                     </view>
                     <connections>
                         <outlet property="loginBtn" destination="PFn-IE-SGO" id="G2B-BQ-RBR"/>
+                        <outlet property="userImg" destination="NuO-a0-5iW" id="Bua-ev-lRK"/>
                         <segue destination="pMB-cc-ixk" kind="show" identifier="toLogin" id="5dq-if-mjS"/>
                     </connections>
                 </viewController>

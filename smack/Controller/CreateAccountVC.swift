@@ -75,6 +75,7 @@ class CreateAccountVC: UIViewController {
         let b = CGFloat(arc4random_uniform(255)) / 255
         let g = CGFloat(arc4random_uniform(255)) / 255
         bgColor = UIColor(red: r, green: g, blue: b, alpha: 1)
+        avatarColor = "[\(r), \(g), \(b), 1]"
         UIView.animate(withDuration: 0.2){
             self.userImg.backgroundColor = self.bgColor
         }
@@ -88,7 +89,7 @@ class CreateAccountVC: UIViewController {
         userNameTxt.attributedPlaceholder = NSAttributedString(string: "username", attributes: [NSAttributedString.Key.foregroundColor: smackPurplePlaceHolder])
         emailTxt.attributedPlaceholder = NSAttributedString(string: "email", attributes: [NSAttributedString.Key.foregroundColor: smackPurplePlaceHolder])
         passwordTxt.attributedPlaceholder = NSAttributedString(string: "password", attributes: [NSAttributedString.Key.foregroundColor: smackPurplePlaceHolder])
-        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+        let tap = UITapGestureRecognizer(target: self, action: #selector(CreateAccountVC.handleTap))
         view.addGestureRecognizer(tap)
     }
     
