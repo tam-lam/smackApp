@@ -10,7 +10,7 @@ import Foundation
 
 class UserDataService{
     static let instance = UserDataService()
-    
+    private init(){}
     private(set) public var id = ""
     private(set) public var avatarColor = ""
     private(set) public var avatarName = ""
@@ -54,7 +54,18 @@ class UserDataService{
         let afloat = CGFloat(aUnwrapped.doubleValue)
         
         let newColor = UIColor(red: rfloat, green: gfloat, blue: bfloat, alpha: afloat)
-
+        
         return newColor
+    }
+    
+    func logoutUser(){
+        id = ""
+        name = ""
+        avatarName = ""
+        avatarColor = ""
+        email = ""
+        AuthService.instance.isLoggedIn = false
+        AuthService.instance.authToken = ""
+        AuthService.instance.userEmail = ""
     }
 }
