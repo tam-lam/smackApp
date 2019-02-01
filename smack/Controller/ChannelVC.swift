@@ -18,6 +18,12 @@ class ChannelVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        SocketService.instance.getChannel { (success) in
+            if success{
+                print("new channel is added...")
+                self.tableView.reloadData()
+            }
+        }
         tableView.delegate = self
         tableView.dataSource = self
         self.revealViewController()!.rearViewRevealWidth = self.view.frame.width - 60
@@ -25,6 +31,12 @@ class ChannelVC: UIViewController {
     }
     override func viewDidAppear(_ animated: Bool) {
         setUpUserInfo()
+        SocketService.instance.getChannel { (success) in
+            if success{
+                print("new channel is added...")
+                self.tableView.reloadData()
+            }
+        }
     }
     @IBAction func addChannelPressed(_ sender: Any) {
         let addChannelVC = AddChannelVC()
