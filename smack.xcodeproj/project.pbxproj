@@ -15,7 +15,6 @@
 		B84B578C21FBF92D00DE36B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B84B578A21FBF92D00DE36B2 /* Main.storyboard */; };
 		B84B578E21FBF92F00DE36B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B84B578D21FBF92F00DE36B2 /* Assets.xcassets */; };
 		B84B579121FBF92F00DE36B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B84B578F21FBF92F00DE36B2 /* LaunchScreen.storyboard */; };
-		B84B579C21FBFD6B00DE36B2 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B84B579B21FBFD6B00DE36B2 /* SWRevealViewController.m */; };
 		B84B57A121FC00AC00DE36B2 /* ChannelVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84B57A021FC00AC00DE36B2 /* ChannelVC.swift */; };
 		B84B57A321FC00B700DE36B2 /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84B57A221FC00B700DE36B2 /* ChatVC.swift */; };
 		B84B57A521FC0B1F00DE36B2 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84B57A421FC0B1F00DE36B2 /* GradientView.swift */; };
@@ -27,6 +26,7 @@
 		B8ACD2D12200C37A0045BDF0 /* UserDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8ACD2D02200C37A0045BDF0 /* UserDataService.swift */; };
 		B8B70ADF2202C8220021067F /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B70ADD2202C8220021067F /* ProfileVC.swift */; };
 		B8B70AE02202C8220021067F /* ProfileVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8B70ADE2202C8220021067F /* ProfileVC.xib */; };
+		B8CD9F2A22045718000ECE98 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8CD9F2922045718000ECE98 /* SWRevealViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,8 +41,6 @@
 		B84B579021FBF92F00DE36B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B84B579221FBF92F00DE36B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B84B579921FBFD6A00DE36B2 /* smack-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "smack-Bridging-Header.h"; sourceTree = "<group>"; };
-		B84B579A21FBFD6A00DE36B2 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWRevealViewController.h; path = "../../../../Downloads/Smack Assets/SWReveal/SWRevealViewController.h"; sourceTree = "<group>"; };
-		B84B579B21FBFD6B00DE36B2 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWRevealViewController.m; path = "../../../../Downloads/Smack Assets/SWReveal/SWRevealViewController.m"; sourceTree = "<group>"; };
 		B84B57A021FC00AC00DE36B2 /* ChannelVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelVC.swift; sourceTree = "<group>"; };
 		B84B57A221FC00B700DE36B2 /* ChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
 		B84B57A421FC0B1F00DE36B2 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
@@ -54,6 +52,8 @@
 		B8ACD2D02200C37A0045BDF0 /* UserDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataService.swift; sourceTree = "<group>"; };
 		B8B70ADD2202C8220021067F /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		B8B70ADE2202C8220021067F /* ProfileVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileVC.xib; sourceTree = "<group>"; };
+		B8CD9F2822045718000ECE98 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		B8CD9F2922045718000ECE98 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		BA6E1E2B9F269DAD357ACAC1 /* Pods-smack.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-smack.release.xcconfig"; path = "Pods/Target Support Files/Pods-smack/Pods-smack.release.xcconfig"; sourceTree = "<group>"; };
 		DFAD50AE9D06256F4F8092FB /* Pods-smack.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-smack.debug.xcconfig"; path = "Pods/Target Support Files/Pods-smack/Pods-smack.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -127,8 +127,8 @@
 		B84B579821FBFD5500DE36B2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				B84B579A21FBFD6A00DE36B2 /* SWRevealViewController.h */,
-				B84B579B21FBFD6B00DE36B2 /* SWRevealViewController.m */,
+				B8CD9F2822045718000ECE98 /* SWRevealViewController.h */,
+				B8CD9F2922045718000ECE98 /* SWRevealViewController.m */,
 				B84B579921FBFD6A00DE36B2 /* smack-Bridging-Header.h */,
 			);
 			path = "Supporting Files";
@@ -312,6 +312,7 @@
 			files = (
 				B8B70ADF2202C8220021067F /* ProfileVC.swift in Sources */,
 				B84B57A321FC00B700DE36B2 /* ChatVC.swift in Sources */,
+				B8CD9F2A22045718000ECE98 /* SWRevealViewController.m in Sources */,
 				B84354A4220163D800922371 /* AvatarPickerVC.swift in Sources */,
 				B8ACD2CF22007B930045BDF0 /* RoundedButton.swift in Sources */,
 				B8208FEC2201D30700EC0B49 /* CircleImage.swift in Sources */,
@@ -323,7 +324,6 @@
 				B84B57A521FC0B1F00DE36B2 /* GradientView.swift in Sources */,
 				B84354A62201657700922371 /* AvatarCell.swift in Sources */,
 				B84B57A121FC00AC00DE36B2 /* ChannelVC.swift in Sources */,
-				B84B579C21FBFD6B00DE36B2 /* SWRevealViewController.m in Sources */,
 				B84B57A821FC133E00DE36B2 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

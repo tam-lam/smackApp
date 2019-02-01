@@ -214,7 +214,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="loginBtnPressed:" destination="pMB-cc-ixk" eventType="touchUpInside" id="msD-h9-lws"/>
+                                    <action selector="loginPressed:" destination="pMB-cc-ixk" eventType="touchUpInside" id="msD-h9-lws"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EYk-pv-HKe">
@@ -278,6 +278,10 @@
                                     <action selector="createAccountPressed:" destination="pMB-cc-ixk" eventType="touchUpInside" id="IQ7-V9-hAG"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="vqs-lg-gXg">
+                                <rect key="frame" x="169" y="215" width="37" height="37"/>
+                                <color key="color" name="indie"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -286,15 +290,20 @@
                             <constraint firstItem="hAX-0h-rCr" firstAttribute="centerX" secondItem="E4Y-Zm-GVe" secondAttribute="centerX" id="MF0-aA-Qth"/>
                             <constraint firstItem="Bzs-41-8tZ" firstAttribute="centerX" secondItem="E4Y-Zm-GVe" secondAttribute="centerX" id="N5t-Xa-Ssl"/>
                             <constraint firstItem="hAX-0h-rCr" firstAttribute="top" secondItem="xwD-79-qr8" secondAttribute="bottom" constant="10" id="PGp-Zq-le1"/>
+                            <constraint firstItem="vqs-lg-gXg" firstAttribute="centerY" secondItem="E4Y-Zm-GVe" secondAttribute="centerY" constant="-100" id="RGF-IX-lQk"/>
                             <constraint firstItem="Bzs-41-8tZ" firstAttribute="top" secondItem="xqv-ZE-aci" secondAttribute="top" constant="100" id="Sxt-VR-wQu"/>
                             <constraint firstItem="EYk-pv-HKe" firstAttribute="top" secondItem="xqv-ZE-aci" secondAttribute="top" constant="8" id="aaK-5g-Qcd"/>
                             <constraint firstItem="xwD-79-qr8" firstAttribute="top" secondItem="VNP-Q1-kDt" secondAttribute="bottom" constant="30" id="gAN-pR-jfy"/>
+                            <constraint firstItem="vqs-lg-gXg" firstAttribute="centerX" secondItem="E4Y-Zm-GVe" secondAttribute="centerX" id="pID-59-qfL"/>
                             <constraint firstItem="xwD-79-qr8" firstAttribute="centerX" secondItem="E4Y-Zm-GVe" secondAttribute="centerX" id="pS7-5Q-GPi"/>
                             <constraint firstItem="VNP-Q1-kDt" firstAttribute="top" secondItem="Bzs-41-8tZ" secondAttribute="bottom" constant="50" id="zKj-xw-YhM"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xqv-ZE-aci"/>
                     </view>
                     <connections>
+                        <outlet property="passwordTxt" destination="YfL-VC-29A" id="1sB-1t-6J0"/>
+                        <outlet property="spinner" destination="vqs-lg-gXg" id="hKN-Yd-7Ih"/>
+                        <outlet property="userNameTxt" destination="3TT-3W-nBd" id="HRw-18-ApG"/>
                         <segue destination="OoJ-Gd-ePZ" kind="show" identifier="toCreateAccount" id="owa-CB-x4Y"/>
                     </connections>
                 </viewController>
