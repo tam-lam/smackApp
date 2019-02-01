@@ -11,12 +11,12 @@ import SocketIO
 
 class SocketService: NSObject {
     static let instance = SocketService()
-    private override init() {
+    override init() {
         super.init()
     }
     let manager = SocketManager(socketURL: URL(string: "\(BASE_URL)")!)
     lazy var socket: SocketIOClient = manager.defaultSocket
-    
+//    var socket : SocketIOClient = SocketManager(socketURL: URL(string: "\(BASE_URL)")!).defaultSocket
     func establishConnection (){
         socket.connect()
     }
@@ -32,11 +32,13 @@ class SocketService: NSObject {
     func getChannel(completion: @escaping CompletionHandle){
         print("getting channel")
         socket.on("channelCreated") { (dataArray, ack) in
+            print("ACK: channelCreated")
+            print("dataArray: \(dataArray)")
             guard let channelName = dataArray[0] as? String else {return}
             guard let channelDesc = dataArray[1] as? String else {return}
             guard let channelId = dataArray[2] as? String else {return}
-            
-            let newChannel = Channel(name: channelName, description: channelDesc, id: channelId)
+
+            let newChannel = Channel(channelTitle: channelName, channelDescription: channelDesc, id: channelId)
             MessageService.instance.channels.append(newChannel)
             completion(true)
         }
