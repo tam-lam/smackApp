@@ -7,26 +7,15 @@
 //
 
 import Foundation
-struct Channel: Decodable {
+struct Channel {
     
-    public private(set) var _id: String!
-    public private(set) var name: String!
-    public private(set) var description: String!
-    public private(set) var __v: Int!
+    public private(set) var channelTitle: String!
+    public private(set) var channelDescription: String!
+    public private(set) var id: String!
     
-    public var channelTitle: String! {
-        get{
-            return self.name
-        }
-    }
-    public var channelDescription:String! {
-        get{
-            return self.description
-        }
-    }
-    public var id:String! {
-        get{
-            return self._id
-        }
+    public init(channelTitle: String, channelDescription: String, id: String){
+        self.channelTitle = channelTitle
+        self.channelDescription = channelDescription
+        self.id = id
     }
 }
