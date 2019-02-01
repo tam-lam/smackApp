@@ -26,6 +26,11 @@ class ChannelVC: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         setUpUserInfo()
     }
+    @IBAction func addChannelPressed(_ sender: Any) {
+        let addChannelVC = AddChannelVC()
+        addChannelVC.modalPresentationStyle = .custom
+        present(addChannelVC, animated: true, completion: nil)
+    }
     @IBAction func loginBtnPressed(_ sender: Any) {
         if AuthService.instance.isLoggedIn {
             let profile = ProfileVC()
