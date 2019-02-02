@@ -73,6 +73,9 @@
                                 <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="msgBoxEditing:" destination="JSl-w6-QpD" eventType="editingChanged" id="jGZ-oc-REl"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xuJ-Z9-caX">
                                 <rect key="frame" x="337" y="632" width="30" height="30"/>
@@ -163,6 +166,7 @@
                         <outlet property="chatNameLbl" destination="rOk-9k-s15" id="HVo-Sb-9YM"/>
                         <outlet property="menuBtn" destination="87k-Qw-3Qr" id="lwL-jw-Jm4"/>
                         <outlet property="messageTxt" destination="UYm-6m-gBW" id="w6u-UR-JeR"/>
+                        <outlet property="sendBtn" destination="xuJ-Z9-caX" id="zIl-9V-ZTu"/>
                         <outlet property="tableView" destination="uQa-Fx-8rm" id="Mgv-N4-Ebv"/>
                     </connections>
                 </viewController>
