@@ -12,7 +12,7 @@ class ChatVC: UIViewController {
     
     @IBOutlet weak var chatNameLbl: UILabel!
     @IBOutlet weak var menuBtn: UIButton!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         menuBtn.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
@@ -37,6 +37,7 @@ class ChatVC: UIViewController {
     func updateWithChannel(){
         let channelName = MessageService.instance.selectedChannel?.channelTitle ?? ""
         chatNameLbl.text = "#\(channelName)"
+        getMessages()
     }
     
     @objc func userDataDidChanged (_ notif: Notification){
@@ -50,8 +51,20 @@ class ChatVC: UIViewController {
     func onLoginGetMessage(){
         MessageService.instance.findAllChannel { (success) in
             if success{
-                
+                if MessageService.instance.channels.count > 0 {
+                    MessageService.instance.selectedChannel = MessageService.instance.channels[0]
+                    self.updateWithChannel()
+                } else{
+                    self.chatNameLbl.text = "No channels yet!"
+                }
             }
         }
     }
+    func getMessages(){
+        guard let channelId = MessageService.instance.selectedChannel?.id else {return}
+        MessageService.instance.findAllMessagesForChannel(channelId: channelId) { (success) in
+            <#code#>
+        }
+    }
+
 }
