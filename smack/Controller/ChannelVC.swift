@@ -26,20 +26,25 @@ class ChannelVC: UIViewController {
         }
         tableView.delegate = self
         tableView.dataSource = self
+        setUpUserInfo()
         self.revealViewController()!.rearViewRevealWidth = self.view.frame.width - 60
         NotificationCenter.default.addObserver(self, selector: #selector(ChannelVC.userDataDidChanged), name: NOTIF_USER_DATA_DID_CHANGE, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(ChannelVC.channelsDidLoaded(_:)), name: NOTIF_CHANNELS_LOADED, object: nil)
     }
-
+    
     @IBAction func addChannelPressed(_ sender: Any) {
-        let addChannelVC = AddChannelVC()
-        addChannelVC.modalPresentationStyle = .custom
-        present(addChannelVC, animated: true, completion: nil)
+        if AuthService.instance.isLoggedIn{
+            let addChannelVC = AddChannelVC()
+            addChannelVC.modalPresentationStyle = .custom
+            present(addChannelVC, animated: true, completion: nil)
+        }
+        
     }
     @IBAction func loginBtnPressed(_ sender: Any) {
         if AuthService.instance.isLoggedIn {
             let profile = ProfileVC()
             profile.modalPresentationStyle = .custom
-        
+            
             present(profile, animated: true, completion: nil)
         }else{
             performSegue(withIdentifier: TO_LOGIN, sender: nil)
@@ -49,8 +54,13 @@ class ChannelVC: UIViewController {
     @objc func userDataDidChanged (_ notif: Notification){
         setUpUserInfo()
     }
+    @objc func channelsDidLoaded(_ notif: Notification){
+        tableView.reloadData()
+    }
+    
     func setUpUserInfo(){
         if AuthService.instance.isLoggedIn {
+            print("Logged in: Setting up Channel VC user info")
             loginBtn.setTitle(UserDataService.instance.name, for: .normal)
             userImg.image = UIImage(named: UserDataService.instance.avatarName)
             userImg.backgroundColor = UserDataService.instance.returnUIColor(components: UserDataService.instance.avatarColor)
@@ -58,6 +68,7 @@ class ChannelVC: UIViewController {
             loginBtn.setTitle("Login", for: .normal)
             userImg.image = UIImage(named: "menuProfileIcon")
             userImg.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
+            tableView.reloadData()
         }
     }
 }
@@ -73,6 +84,12 @@ extension ChannelVC : UITableViewDelegate, UITableViewDataSource {
             return cell
         }
         return ChannelCell()
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let channel = MessageService.instance.channels[indexPath.row]
+        MessageService.instance.selectedChannel = channel
+        NotificationCenter.default.post(name: NOTIF_CHANNEL_SELECTED, object: nil)
+        self.revealViewController()?.revealToggle(animated: true)
     }
     
     
