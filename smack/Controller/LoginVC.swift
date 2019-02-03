@@ -12,16 +12,14 @@ class LoginVC: UIViewController {
     //Outlets
     @IBOutlet weak var userNameTxt: UITextField!
     @IBOutlet weak var passwordTxt: UITextField!
-    
-    
     @IBOutlet weak var spinner: UIActivityIndicatorView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
         
         // Do any additional setup after loading the view.
     }
-    
     
     @IBAction func loginPressed(_ sender: Any) {
         spinner.isHidden = false
@@ -42,15 +40,15 @@ class LoginVC: UIViewController {
                 })
             }
         }
-
     }
+    
     @IBAction func closeBtnPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
+    
     @IBAction func createAccountPressed(_ sender: Any) {
         performSegue(withIdentifier: TO_CREATE_ACCOUNT, sender: nil)
     }
-    
     
     func setupView (){
         spinner.isHidden = true

@@ -24,6 +24,5 @@ struct Message{
         self.userAvatarColor = userAvatarColor
         self.id = id
         self.timeStamp = timeStamp
-        
     }
 }

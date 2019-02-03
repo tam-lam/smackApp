@@ -24,6 +24,7 @@ class ChannelCell: UITableViewCell {
             self.layer.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
         }
     }
+    
     func configCell(channel: Channel){
         let title = channel.channelTitle ?? ""
         channelName.text = "#\(title)"

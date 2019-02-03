@@ -21,13 +21,13 @@ class CreateAccountVC: UIViewController {
     var avatarColor = "[0.5,0.5,0.5,1]"
     var bgColor : UIColor?
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
         
         // Do any additional setup after loading the view.
     }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         if UserDataService.instance.avatarName != ""{
@@ -67,9 +67,11 @@ class CreateAccountVC: UIViewController {
             }
         }
     }
+    
     @IBAction func pickAvatarPressed(_ sender: Any) {
         performSegue(withIdentifier: TO_AVATAR_PICKER, sender: nil)
     }
+    
     @IBAction func pickBgColorPressed(_ sender: Any) {
         let r = CGFloat(arc4random_uniform(255)) / 255
         let b = CGFloat(arc4random_uniform(255)) / 255

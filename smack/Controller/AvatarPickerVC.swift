@@ -19,12 +19,12 @@ class AvatarPickerVC: UIViewController {
         super.viewDidLoad()
         collectionView.delegate = self
         collectionView.dataSource = self
-
     }
     
     @IBAction func backPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
+    
     @IBAction func segmentControlChanged(_ sender: Any) {
         if segmentControl.selectedSegmentIndex == 0 {
             avatarType = .dark
@@ -33,10 +33,8 @@ class AvatarPickerVC: UIViewController {
         }
         collectionView.reloadData()
     }
-    
-    
-
 }
+
 extension AvatarPickerVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
@@ -52,6 +50,7 @@ extension AvatarPickerVC: UICollectionViewDelegate, UICollectionViewDataSource, 
         }
         return AvatarCell()
     }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         var numOfColumns : CGFloat = 3
         if UIScreen.main.bounds.width > 320 {
@@ -62,6 +61,7 @@ extension AvatarPickerVC: UICollectionViewDelegate, UICollectionViewDataSource, 
         let cellDimension = ((collectionView.bounds.width - padding) - (numOfColumns - 1) * spaceBetweenCells) / numOfColumns
         return CGSize(width: cellDimension, height: cellDimension)
     }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if avatarType == .dark{
             UserDataService.instance.setAvatarName(avatarName: "dark\(indexPath.item)")

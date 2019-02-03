@@ -18,6 +18,7 @@ class AvatarCell: UICollectionViewCell {
         super.awakeFromNib()
         setupView()
     }
+    
     func setupView(){
         self.layer.cornerRadius = 10
         self.layer.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
@@ -33,5 +34,4 @@ class AvatarCell: UICollectionViewCell {
             self.layer.backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
         }
     }
-    
 }

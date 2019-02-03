@@ -13,15 +13,16 @@ class AddChannelVC: UIViewController {
     @IBOutlet weak var bgView: UIView!
     @IBOutlet weak var chanDesc: UITextField!
     @IBOutlet weak var nameTxt: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpView()
-        // Do any additional setup after loading the view.
     }
 
     @IBAction func closeModalPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
+    
     @IBAction func createChannelPressed(_ sender: Any) {
         guard let channelName = nameTxt.text, nameTxt.text != "" else{return}
         guard let channelDescription = chanDesc.text else {return}
@@ -41,6 +42,4 @@ class AddChannelVC: UIViewController {
     @objc func closeOnTap (_ recognizer: UITapGestureRecognizer){
         dismiss(animated: true, completion: nil)
     }
-    
-
 }

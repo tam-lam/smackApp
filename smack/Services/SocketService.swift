@@ -11,13 +11,14 @@ import SocketIO
 
 class SocketService: NSObject {
     static let instance = SocketService()
+
+    let manager = SocketManager(socketURL: URL(string: "\(BASE_URL)")!)
+    lazy var socket: SocketIOClient = manager.defaultSocket
+    
     private override init() {
         super.init()
     }
     
-    let manager = SocketManager(socketURL: URL(string: "\(BASE_URL)")!)
-    lazy var socket: SocketIOClient = manager.defaultSocket
-    //    var socket : SocketIOClient = SocketManager(socketURL: URL(string: "\(BASE_URL)")!).defaultSocket
     func establishConnection (){
         socket.connect()
     }
@@ -25,11 +26,13 @@ class SocketService: NSObject {
     func closeConnection (){
         socket.disconnect()
     }
+    
     func addChannel(channelName: String, channelDescription: String,completion: @escaping CompletionHandle){
         socket.emit("newChannel", channelName, channelDescription)
         print("New channel is created: \(channelName)")
         completion(true)
     }
+    
     func getChannel(completion: @escaping CompletionHandle){
         print("getting channel")
         socket.on("channelCreated") { (dataArray, ack) in
@@ -50,9 +53,8 @@ class SocketService: NSObject {
         socket.emit("newMessage", messageBody, userId, channelId, user.name, user.avatarName, user.avatarColor)
         completion(true)
     }
-    //    func getChatMessage(completion: @escaping CompletionHandle){
+    
     func getChatMessage(completion: @escaping (_ newMessage: Message) -> Void){
-        
         socket.on("messageCreated") { (dataArray, ack) in
             guard let msgBody = dataArray[0] as? String else {return}
             guard let channelId = dataArray[2] as? String else {return}
@@ -63,19 +65,9 @@ class SocketService: NSObject {
             guard let timeStamp = dataArray[7] as? String else {return}
             let newMessage = Message(message: msgBody, userName: userName, channelId: channelId, userAvatar: userAvatar, userAvatarColor: userAvatarColor, id: id, timeStamp: timeStamp)
             completion(newMessage)
-            
-            
-            //            if channelId == MessageService.instance.selectedChannel?.id && AuthService.instance.isLoggedIn{
-            //
-            //                let newMessage = Message(message: msgBody, userName: userName, channelId: channelId, userAvatar: userAvatar, userAvatarColor: userAvatarColor, id: id, timeStamp: timeStamp)
-            //                MessageService.instance.messages.append(newMessage)
-            //                completion(true)
-            //        }else {
-            //            completion(false)
-            //        }
-            
         }
     }
+    
     func getTypingUsers(_ completionHandler: @escaping (_ typingUsers: [String: String]) -> Void){
         socket.on("userTypingUpdate") { (dataArray, ack) in
             guard let typingUsers = dataArray[0] as? [String: String] else {return}

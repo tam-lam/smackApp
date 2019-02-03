@@ -43,10 +43,10 @@ class MessageService {
             } else {
                 completion(false)
                 debugPrint("Cannot get all channels!")
-                //                debugPrint(response.result.error as Any)
             }
         }
     }
+    
     func findAllMessagesForChannel(channelId: String, completion: @escaping CompletionHandle ){
         Alamofire.request("\(URL_GET_MESSAGES)\(channelId)", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: BEARER_HEADER).responseJSON { (response) in
             if response.result.error == nil{
@@ -79,9 +79,11 @@ class MessageService {
             }
         }
     }
+    
     func clearMessages(){
         messages.removeAll()
     }
+    
     func clearChannels(){
         channels.removeAll()
     }

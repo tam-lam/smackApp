@@ -21,10 +21,9 @@ class AuthService {
         }
         set {
             defaults.set(newValue,forKey: LOGGED_IN_KEY)
-            
         }
     }
-    
+
     var authToken: String{
         get{
             return defaults.value(forKey: TOKEN_KEY) as! String
@@ -41,12 +40,10 @@ class AuthService {
         set{
             defaults.set(newValue, forKey: USER_EMAIL)
         }
-        
     }
     
     func registerUser(email: String, password: String, completion: @escaping CompletionHandle){
         let lowerCaseEmail = email.lowercased()
-        
         let body : [String: Any] = [
             "email" : lowerCaseEmail,
             "password" : password
@@ -63,7 +60,6 @@ class AuthService {
     }
     func loginUser(email: String, password: String, completion: @escaping CompletionHandle){
         let lowerCaseEmail = email.lowercased()
-        
         let body : [String: Any] = [
             "email" : lowerCaseEmail,
             "password" : password
@@ -82,7 +78,6 @@ class AuthService {
                 }catch{
                     debugPrint("Failed to get JSON response ")
                 }
-                
             }else{
                 completion(false)
                 debugPrint(response.result.error as Any)
@@ -98,8 +93,6 @@ class AuthService {
             "avatarName": avatarName,
             "avatarColor": avatarColor
         ]
-        
-
         Alamofire.request(URL_USER_ADD, method: .post, parameters: body, encoding: JSONEncoding.default, headers: BEARER_HEADER).responseJSON { (response) in
             if response.result.error == nil{
                 guard let data = response.data else {return}
@@ -109,7 +102,6 @@ class AuthService {
                 }catch{
                     completion(false)
                     debugPrint("Cannot convert response to SwiftyJSON")
-                    
                 }
                 
             } else{
@@ -138,6 +130,7 @@ class AuthService {
             }
         }
     }
+    
     func setUserData(data: Data) throws {
         let json =  try JSON(data: data)
         let id = json["_id"].stringValue

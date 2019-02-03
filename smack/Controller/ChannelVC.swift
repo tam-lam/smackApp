@@ -45,8 +45,8 @@ class ChannelVC: UIViewController {
             addChannelVC.modalPresentationStyle = .custom
             present(addChannelVC, animated: true, completion: nil)
         }
-        
     }
+    
     @IBAction func loginBtnPressed(_ sender: Any) {
         if AuthService.instance.isLoggedIn {
             let profile = ProfileVC()
@@ -61,6 +61,7 @@ class ChannelVC: UIViewController {
     @objc func userDataDidChanged (_ notif: Notification){
         setUpUserInfo()
     }
+    
     @objc func channelsDidLoaded(_ notif: Notification){
         tableView.reloadData()
     }
@@ -79,6 +80,7 @@ class ChannelVC: UIViewController {
         }
     }
 }
+
 extension ChannelVC : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return MessageService.instance.channels.count
@@ -92,6 +94,7 @@ extension ChannelVC : UITableViewDelegate, UITableViewDataSource {
         }
         return ChannelCell()
     }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let channel = MessageService.instance.channels[indexPath.row]
         MessageService.instance.selectedChannel = channel
@@ -103,9 +106,6 @@ extension ChannelVC : UITableViewDelegate, UITableViewDataSource {
             let index = IndexPath(row: indexPath.row, section: 0)
             tableView.reloadRows(at: [index], with: .none)
             tableView.selectRow(at: index, animated: false, scrollPosition: .none)
-            
         }
     }
-    
-    
 }
