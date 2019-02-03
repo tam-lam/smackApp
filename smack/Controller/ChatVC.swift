@@ -15,6 +15,7 @@ class ChatVC: UIViewController {
     @IBOutlet weak var messageTxt: UITextField!
     @IBOutlet weak var chatNameLbl: UILabel!
     @IBOutlet weak var menuBtn: UIButton!
+    @IBOutlet weak var typingUsersLbl: UILabel!
     
     var isTyping = false
     
@@ -44,7 +45,31 @@ class ChatVC: UIViewController {
                 }
             }
         }
-        
+        SocketService.instance.getTypingUsers { (typingUsers) in
+            guard let channelId = MessageService.instance.selectedChannel?.id else {return}
+            var names = ""
+            var numberOfTypers = 0
+            
+            for(typingUser, channel) in typingUsers {
+                if typingUser != UserDataService.instance.name && channelId == channel{
+                    if names == "" {
+                        names = typingUser
+                    } else {
+                        names = "\(names), \(typingUsers)"
+                    }
+                    numberOfTypers += 1
+                }
+            }
+            if numberOfTypers > 0 && AuthService.instance.isLoggedIn == true{
+                var verb = "is"
+                if numberOfTypers > 0 {
+                    verb = "are"
+                }
+                self.typingUsersLbl.text = "\(names) \(verb) typing a message"
+            } else{
+                self.typingUsersLbl.text = ""
+            }
+        }
         if AuthService.instance.isLoggedIn{
             AuthService.instance.findUserByEmail { (success) in
                 if success{
@@ -66,6 +91,7 @@ class ChatVC: UIViewController {
                 if success {
                     self.messageTxt.text = ""
                     self.resignFirstResponder()
+                    SocketService.instance.socket.emit("stopType", UserDataService.instance.name, channelId)
                 }
             }
         }
@@ -75,12 +101,16 @@ class ChatVC: UIViewController {
         updateWithChannel()
     }
     @IBAction func msgBoxEditing(_ sender: Any) {
+        guard let channelId = MessageService.instance.selectedChannel?.id else {return}
+        let  userName = UserDataService.instance.name
         if messageTxt.text == "" {
             isTyping = false
             sendBtn.isHidden = true
+            SocketService.instance.socket.emit("stopType", userName, channelId)
         } else{
             if isTyping == false{
                 sendBtn.isHidden = false
+                SocketService.instance.socket.emit("startType", userName, channelId)
             }
             isTyping = true
         }
